@@ -1,0 +1,3 @@
+/Users/gongzian/src/pull-pushable/pull-mesh-v3/build/CMakeFiles/pull-stream-demo.dir
+/Users/gongzian/src/pull-pushable/pull-mesh-v3/build/CMakeFiles/edit_cache.dir
+/Users/gongzian/src/pull-pushable/pull-mesh-v3/build/CMakeFiles/rebuild_cache.dir
