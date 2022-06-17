@@ -13,17 +13,22 @@ class Sink {
 
     sinkT<Message> sink() {
       return [this](sourceT<Message> source){
-        source(false, m_sink_cb);
+        source(m_end_or_error, m_sink_cb);
       };
     };
 
     void set_id(char id) { m_sink_ID = id; }
     char get_id() const { return m_sink_ID; }
 
-
     source_callback<Message> m_sink_cb;
+    EndOrError get_end_or_error() const { return m_end_or_error; }
+    void set_end_or_error(bool end, bool error) {
+      m_end_or_error.end = end;
+      m_end_or_error.error = error;
+    }
   private:
     char m_sink_ID;
+    EndOrError m_end_or_error;
     
 };
 

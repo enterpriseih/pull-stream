@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/gongzian/src/pull-pushable/pull-mesh-v3/src/main.cpp" "CMakeFiles/pull-stream-demo.dir/src/main.cpp.o" "gcc" "CMakeFiles/pull-stream-demo.dir/src/main.cpp.o.d"
+  "/Users/gongzian/src/pull-stream/src/main.cpp" "CMakeFiles/pull-stream-demo.dir/src/main.cpp.o" "gcc" "CMakeFiles/pull-stream-demo.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links.

@@ -1,6 +1,6 @@
 CMakeFiles/pull-stream-demo.dir/src/main.cpp.o: \
-  /Users/gongzian/src/pull-pushable/pull-mesh-v3/src/main.cpp \
-  /Users/gongzian/src/pull-pushable/pull-mesh-v3/src/../include/common.h \
+  /Users/gongzian/src/pull-stream/src/main.cpp \
+  /Users/gongzian/src/pull-stream/src/../include/common.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__config_site \
@@ -416,9 +416,9 @@ CMakeFiles/pull-stream-demo.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/sys/_types/_fsfilcnt_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__bsd_locale_defaults.h \
-  /Users/gongzian/src/pull-pushable/pull-mesh-v3/include/declarations.h \
-  /Users/gongzian/src/pull-pushable/pull-mesh-v3/include/sink.h \
-  /Users/gongzian/src/pull-pushable/pull-mesh-v3/include/common.h \
-  /Users/gongzian/src/pull-pushable/pull-mesh-v3/include/source.h \
-  /Users/gongzian/src/pull-pushable/pull-mesh-v3/include/duplex.h \
-  /Users/gongzian/src/pull-pushable/pull-mesh-v3/include/pull-stream.h
+  /Users/gongzian/src/pull-stream/include/declarations.h \
+  /Users/gongzian/src/pull-stream/include/sink.h \
+  /Users/gongzian/src/pull-stream/include/common.h \
+  /Users/gongzian/src/pull-stream/include/source.h \
+  /Users/gongzian/src/pull-stream/include/duplex.h \
+  /Users/gongzian/src/pull-stream/include/pull-stream.h

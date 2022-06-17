@@ -14,15 +14,25 @@ class Duplex {
       m_message(message), m_ID(id) {
       sink_opts.id = sink_opts.id ? sink_opts.id : id;
       sink_opts.sink_cb = sink_opts.sink_cb ? sink_opts.sink_cb : 
-        [this](bool end, T message) {
+        [this](EndOrError end_or_error, T message) {
+          // arguments come from source
+          // this ptr points to sink's parent: Duplex
+          if(end_or_error.end || end_or_error.error) {
+            std::cout << this->get_id() << "'s peer as Source end or error" << std::endl;
+            return;}
           std::cout << this->get_id() << 
           " received Message from peer(source): " 
           << message << std::endl;
         };
       source_opts.id = source_opts.id ? source_opts.id : id;
       source_opts.source = source_opts.source ? source_opts.source : 
-        [this](bool end, source_callback<T> cb){
-          return cb(end, this->get_message());
+        [this](EndOrError end_or_error, source_callback<T> cb){
+          // arguments come from sink
+          // this ptr points to source's parent: Duplex
+          if(end_or_error.end || end_or_error.error) {
+            std::cout << this->get_id() << "'s peer as Sink end or error" << std::endl;
+            return;}
+          return cb(this->get_source().get_end_or_error(), this->get_message());
         };
       m_sink = Sink<T>(sink_opts);
       m_source = Source<T>(source_opts);

@@ -2,10 +2,16 @@
 #define DECLARATIONS_H
 #include <functional>
 
+struct EndOrError
+{
+  bool end = false;
+  bool error = false;
+};
+
 template <class T>
-using source_callback = std::function<void (bool, T)>;
+using source_callback = std::function<void (EndOrError, T)>;
 template <class T>
-using sourceT = std::function<void (bool, source_callback<T>)>;
+using sourceT = std::function<void (EndOrError, source_callback<T>)>;
 template <class T>
 using sinkT = std::function<void (sourceT<T>)>;
 
@@ -20,5 +26,6 @@ struct sourceOptions {
   char id;
   sourceT<T> source = nullptr;
 };
+
 
 #endif
