@@ -19,7 +19,8 @@ class Duplex {
           // this ptr points to sink's parent: Duplex
           if(end_or_error) {
             std::cout << this->get_id() << "'s peer as Source end or error" << std::endl;
-            return;}
+            return; }
+          m_received = message;
           std::cout << this->get_id() << 
           " received Message from peer(source): " 
           << message << std::endl;
@@ -59,10 +60,12 @@ class Duplex {
     }
 
     T get_message() const { return m_message; }
+    T get_received() const { return m_received; }
   private:
     Source<T> m_source;
     Sink<T> m_sink;
     T m_message;
+    T m_received;
     char m_ID;
 };
 

@@ -1,3 +1,0 @@
-/Users/gongzian/src/pull-stream/build/CMakeFiles/pull-stream-demo.dir
-/Users/gongzian/src/pull-stream/build/CMakeFiles/edit_cache.dir
-/Users/gongzian/src/pull-stream/build/CMakeFiles/rebuild_cache.dir

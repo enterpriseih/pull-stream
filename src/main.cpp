@@ -12,7 +12,7 @@ int main() {
 
   Duplex<std::string> c('C', "I am C");
   std::cout << "c.get_message: " << c.get_message() << std::endl;
-  c.get_sink().set_end_or_error(True);
+  // c.get_sink().set_end_or_error(True);
   c.get_source().set_end_or_error(True);
 
   Duplex<std::string> d('D', "I am D");
