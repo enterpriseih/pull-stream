@@ -16,11 +16,12 @@ class Source {
 
     void set_id(char id) { m_source_ID = id; }
     char get_id() const { return m_source_ID; }
-    sourceT<Message> m_source;
     EndOrError get_end_or_error() const { return m_end_or_error; }
     void set_end_or_error(EndOrError value = False) {
       m_end_or_error = value;
     }
+    
+    sourceT<Message> m_source;
   private:
     char m_source_ID;
     EndOrError m_end_or_error;

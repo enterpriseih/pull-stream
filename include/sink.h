@@ -20,11 +20,12 @@ class Sink {
     void set_id(char id) { m_sink_ID = id; }
     char get_id() const { return m_sink_ID; }
 
-    source_callback<Message> m_sink_cb;
     EndOrError get_end_or_error() const { return m_end_or_error; }
     void set_end_or_error(EndOrError value = False) {
       m_end_or_error = value;
     }
+    
+    source_callback<Message> m_sink_cb;
   private:
     char m_sink_ID;
     EndOrError m_end_or_error;

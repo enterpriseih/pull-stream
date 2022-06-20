@@ -19,5 +19,4 @@ int main() {
   std::cout << "d.get_message: " << d.get_message() << std::endl;
   d.get_source().set_end_or_error(True);
   link(c, d);
-
 }
