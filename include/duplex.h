@@ -17,7 +17,7 @@ class Duplex {
         [this](EndOrError end_or_error, T message) {
           // arguments come from source
           // this ptr points to sink's parent: Duplex
-          if(end_or_error.end || end_or_error.error) {
+          if(end_or_error) {
             std::cout << this->get_id() << "'s peer as Source end or error" << std::endl;
             return;}
           std::cout << this->get_id() << 
@@ -29,7 +29,7 @@ class Duplex {
         [this](EndOrError end_or_error, source_callback<T> cb){
           // arguments come from sink
           // this ptr points to source's parent: Duplex
-          if(end_or_error.end || end_or_error.error) {
+          if(end_or_error) {
             std::cout << this->get_id() << "'s peer as Sink end or error" << std::endl;
             return;}
           return cb(this->get_source().get_end_or_error(), this->get_message());
@@ -43,6 +43,20 @@ class Duplex {
 
     void set_id(char id) { m_ID = id; }
     char get_id() const { return m_ID; }
+
+    void end_source() { m_source.set_end_or_error(true, false); }
+    void end_sink() { m_sink.set_end_or_error(true, false); }
+    void end() { 
+      end_source();
+      end_sink();
+    }
+
+    void abort_source() {}
+    void abort_sink() {}
+    void abort() {
+      abort_source();
+      abort_sink();
+    }
 
     T get_message() const { return m_message; }
   private:

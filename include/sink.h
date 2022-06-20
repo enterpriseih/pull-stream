@@ -22,9 +22,8 @@ class Sink {
 
     source_callback<Message> m_sink_cb;
     EndOrError get_end_or_error() const { return m_end_or_error; }
-    void set_end_or_error(bool end, bool error) {
-      m_end_or_error.end = end;
-      m_end_or_error.error = error;
+    void set_end_or_error(EndOrError value = False) {
+      m_end_or_error = value;
     }
   private:
     char m_sink_ID;

@@ -18,9 +18,8 @@ class Source {
     char get_id() const { return m_source_ID; }
     sourceT<Message> m_source;
     EndOrError get_end_or_error() const { return m_end_or_error; }
-    void set_end_or_error(bool end, bool error) {
-      m_end_or_error.end = end;
-      m_end_or_error.error = error;
+    void set_end_or_error(EndOrError value = False) {
+      m_end_or_error = value;
     }
   private:
     char m_source_ID;
