@@ -80,3 +80,24 @@ TEST(StateTests, DuplexEnd) {
   EXPECT_NE(a.get_received(), 2);
   EXPECT_NE(b.get_received(), 1);
 }
+
+TEST(StateTests, Reconnect) {
+  int message_A = random();
+  int message_B = random();
+  Duplex<int> a('A', message_A);
+  Duplex<int> b('B', message_B);
+  link(a, b);
+  EXPECT_EQ(a.get_received(), message_B);
+  EXPECT_EQ(b.get_received(), message_A);
+  a.abort();
+  b.abort();
+  a.set_message(1);
+  b.set_message(2);
+  EXPECT_NE(a.get_received(), 2);
+  EXPECT_NE(b.get_received(), 1);
+  a.init();
+  b.init();
+  link(a, b);
+  EXPECT_EQ(a.get_received(), 2);
+  EXPECT_EQ(b.get_received(), 1);
+}

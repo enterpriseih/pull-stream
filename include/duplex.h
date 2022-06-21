@@ -84,7 +84,12 @@ class Duplex {
       end_sink();
       end_source();
     }
-
+    void init() {
+      m_sink.get_state().init();
+      m_sink.set_end_or_error(False);
+      m_source.get_state().init();
+      m_source.set_end_or_error(False);
+    }
     Source<T>& get_source() { return m_source; }
     Sink<T>& get_sink() { return m_sink; }
 

@@ -19,6 +19,10 @@ class State {
       m_aborting = end || True;
       return true;
     }
+    void init() {
+      m_ending = False;
+      m_aborting = False;
+    }
     std::string to_string() {
       return "ending: " + std::string(m_ending.what()) +
             ", aborting: " + std::string(m_aborting.what());
