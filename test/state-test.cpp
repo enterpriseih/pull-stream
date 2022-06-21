@@ -95,9 +95,7 @@ TEST(StateTests, Reconnect) {
   b.set_message(2);
   EXPECT_NE(a.get_received(), 2);
   EXPECT_NE(b.get_received(), 1);
-  a.init();
-  b.init();
-  link(a, b);
+  reconnect(a, b);
   EXPECT_EQ(a.get_received(), 2);
   EXPECT_EQ(b.get_received(), 1);
 }

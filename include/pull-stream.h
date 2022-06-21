@@ -10,9 +10,15 @@ inline void pull(sinkT<T> sink, sourceT<T> source) {
 
 
 template<class Message>
-inline void link(Duplex<Message> a, Duplex<Message> b) {
+inline void link(Duplex<Message>& a, Duplex<Message>& b) {
     pull(a.get_sink().sink(), b.get_source().source());
     pull(b.get_sink().sink(), a.get_source().source());
+}
+template<class Message>
+inline void reconnect(Duplex<Message>& a, Duplex<Message>& b) {
+    a.init();
+    b.init();
+    link(a, b);
 }
 
 #endif
