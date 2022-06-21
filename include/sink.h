@@ -12,10 +12,6 @@ class Sink {
       m_sink_ID(sink_opts.id), m_sink_cb(sink_opts.sink_cb) {};
 
     sinkT<Message> sink() {
-      if(m_state.aborting()) {
-        m_state.ask_end();
-        m_end_or_error = True;
-      }
       return [this](sourceT<Message> source) {
         m_peer_source = source;
         source(this->m_end_or_error, this->m_sink_cb);

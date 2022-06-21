@@ -17,6 +17,10 @@ class Duplex {
         [this](EndOrError end_or_error, T message) {
           // arguments come from source
           // this ptr points to sink's parent: Duplex
+          if(this->get_sink().get_state().aborting()) {
+            this->get_sink().get_state().ask_end();
+            this->get_sink().set_end_or_error(True);
+          }
           if(this->get_sink().get_end_or_error()) {
             std::cout << this->get_id() << " is end or error" << std::endl;
             return; }
