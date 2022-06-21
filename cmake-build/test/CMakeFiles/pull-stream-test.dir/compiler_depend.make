@@ -427,8 +427,6 @@ test/CMakeFiles/pull-stream-test.dir/basic-test.cpp.o: ../test/basic-test.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/sys/_select.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/sys/_types/_uuid_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/gethostuuid.h \
-  ../include/trigger.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/signal.h \
   ../include/declarations.h \
   ../include/state.h \
   ../include/common.h \
@@ -907,8 +905,6 @@ test/CMakeFiles/pull-stream-test.dir/end_or_error_test.cpp.o: ../test/end_or_err
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/sys/_select.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/sys/_types/_uuid_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/gethostuuid.h \
-  ../include/trigger.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/signal.h \
   ../include/declarations.h \
   ../include/state.h \
   ../include/common.h \
@@ -1029,10 +1025,6 @@ test/CMakeFiles/pull-stream-test.dir/end_or_error_test.cpp.o: ../test/end_or_err
 ../include/sink.h:
 
 ../include/declarations.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/signal.h:
-
-../include/trigger.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/gethostuuid.h:
 

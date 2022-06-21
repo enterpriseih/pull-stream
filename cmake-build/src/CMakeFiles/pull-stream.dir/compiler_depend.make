@@ -427,8 +427,6 @@ src/CMakeFiles/pull-stream.dir/main.cpp.o: ../src/main.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/sys/_select.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/sys/_types/_uuid_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/gethostuuid.h \
-  ../include/trigger.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/signal.h \
   ../include/declarations.h \
   ../include/state.h \
   ../include/common.h \
@@ -449,10 +447,6 @@ src/CMakeFiles/pull-stream.dir/main.cpp.o: ../src/main.cpp \
 ../include/sink.h:
 
 ../include/declarations.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/signal.h:
-
-../include/trigger.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/gethostuuid.h:
 

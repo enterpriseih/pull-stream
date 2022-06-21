@@ -14,9 +14,6 @@ class Sink {
     sinkT<Message> sink() {
       return [this](sourceT<Message> source) {
         source(m_end_or_error, m_sink_cb); 
-        // 也许应该等待被触发
-        // std::function<void()> wrap_to_wait_trigger = [this, source](){ 
-        //   source(m_end_or_error, m_sink_cb); };
       };
     };
 

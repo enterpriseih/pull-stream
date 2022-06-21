@@ -428,8 +428,6 @@ test/CMakeFiles/pull-stream-test.dir/basic-test.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/sys/_select.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/sys/_types/_uuid_t.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/gethostuuid.h
- /Users/gongzian/src/pull-stream/include/trigger.h
- /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/signal.h
  /Users/gongzian/src/pull-stream/include/declarations.h
  /Users/gongzian/src/pull-stream/include/state.h
  /Users/gongzian/src/pull-stream/include/common.h
@@ -909,8 +907,6 @@ test/CMakeFiles/pull-stream-test.dir/end_or_error_test.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/sys/_select.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/sys/_types/_uuid_t.h
  /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/gethostuuid.h
- /Users/gongzian/src/pull-stream/include/trigger.h
- /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/signal.h
  /Users/gongzian/src/pull-stream/include/declarations.h
  /Users/gongzian/src/pull-stream/include/state.h
  /Users/gongzian/src/pull-stream/include/common.h
