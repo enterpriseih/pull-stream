@@ -47,12 +47,20 @@ class Duplex {
     };
 
     void drain() {
+      if(m_source.get_state().aborting()) {
+        m_source.get_state().ask_end();
+        m_source.set_end_or_error(True);
+        return;
+      }
       std::queue<T> &buf = get_buffer();
       while (!buf.empty())
       {
         T tmp = buf.front();
         buf.pop();
-        get_source().source_callback(get_source().get_end_or_error(), tmp);
+        m_source.source_callback(m_source.get_end_or_error(), tmp);
+      }
+      if(m_source.get_state().ending()) {
+        m_source.set_end_or_error(True);
       }
     }
 
@@ -78,19 +86,5 @@ class Duplex {
 
     char m_ID;
 };
-
-// void end_source() { m_source.set_end_or_error(true, false); }
-// void end_sink() { m_sink.set_end_or_error(true, false); }
-// void end() { 
-//   end_source();
-//   end_sink();
-// }
-
-// void abort_source() {}
-// void abort_sink() {}
-// void abort() {
-//   abort_source();
-//   abort_sink();
-// }
 
 #endif

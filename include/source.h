@@ -36,6 +36,7 @@ class Source {
     void set_message(Message m) { 
       m_message = m;
     }
+    State& get_state() { return m_state; }
 
     sourceT<Message> m_source;
     source_callback<Message> source_callback; 
@@ -44,6 +45,7 @@ class Source {
     EndOrError m_end_or_error;
     Message m_message;
     std::queue<Message> m_buffer;
+    State m_state;
 };
 
 #endif

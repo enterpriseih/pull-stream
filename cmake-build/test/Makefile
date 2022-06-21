@@ -233,6 +233,30 @@ end_or_error_test.cpp.s:
 	cd /Users/gongzian/src/pull-stream/cmake-build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/pull-stream-test.dir/build.make test/CMakeFiles/pull-stream-test.dir/end_or_error_test.cpp.s
 .PHONY : end_or_error_test.cpp.s
 
+state-test.o: state-test.cpp.o
+.PHONY : state-test.o
+
+# target to build an object file
+state-test.cpp.o:
+	cd /Users/gongzian/src/pull-stream/cmake-build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/pull-stream-test.dir/build.make test/CMakeFiles/pull-stream-test.dir/state-test.cpp.o
+.PHONY : state-test.cpp.o
+
+state-test.i: state-test.cpp.i
+.PHONY : state-test.i
+
+# target to preprocess a source file
+state-test.cpp.i:
+	cd /Users/gongzian/src/pull-stream/cmake-build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/pull-stream-test.dir/build.make test/CMakeFiles/pull-stream-test.dir/state-test.cpp.i
+.PHONY : state-test.cpp.i
+
+state-test.s: state-test.cpp.s
+.PHONY : state-test.s
+
+# target to generate assembly for a file
+state-test.cpp.s:
+	cd /Users/gongzian/src/pull-stream/cmake-build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/pull-stream-test.dir/build.make test/CMakeFiles/pull-stream-test.dir/state-test.cpp.s
+.PHONY : state-test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -253,6 +277,9 @@ help:
 	@echo "... end_or_error_test.o"
 	@echo "... end_or_error_test.i"
 	@echo "... end_or_error_test.s"
+	@echo "... state-test.o"
+	@echo "... state-test.i"
+	@echo "... state-test.s"
 .PHONY : help
 
 

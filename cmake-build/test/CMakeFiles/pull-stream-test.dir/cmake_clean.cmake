@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/pull-stream-test.dir/basic-test.cpp.o.d"
   "CMakeFiles/pull-stream-test.dir/end_or_error_test.cpp.o"
   "CMakeFiles/pull-stream-test.dir/end_or_error_test.cpp.o.d"
+  "CMakeFiles/pull-stream-test.dir/state-test.cpp.o"
+  "CMakeFiles/pull-stream-test.dir/state-test.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.
