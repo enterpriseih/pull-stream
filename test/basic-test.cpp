@@ -24,3 +24,16 @@ TEST(BasicTests, LinkDupex){
   EXPECT_EQ(b.get_received(), message_A);
 }
 
+TEST(BasicTests, TransMessageFlow){
+  int message_A = random();
+  int message_B = random();
+  Duplex<int> a('A', message_A);
+  Duplex<int> b('B', message_B);
+  link(a, b);
+  EXPECT_EQ(a.get_received(), message_B);
+  EXPECT_EQ(b.get_received(), message_A);
+  int message_A_1 = random();
+  a.set_message(message_A_1);
+  EXPECT_EQ(b.get_received(), message_A_1);
+}
+

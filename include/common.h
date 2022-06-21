@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <stdio.h>
+#include <unistd.h>
 
 #include "declarations.h"
 #include "state.h"

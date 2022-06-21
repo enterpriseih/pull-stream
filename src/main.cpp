@@ -12,11 +12,14 @@ int main() {
 
   Duplex<std::string> c('C', "I am C");
   std::cout << "c.get_message: " << c.get_message() << std::endl;
-  // c.get_sink().set_end_or_error(True);
-  c.get_source().set_end_or_error(True);
 
   Duplex<std::string> d('D', "I am D");
   std::cout << "d.get_message: " << d.get_message() << std::endl;
-  d.get_source().set_end_or_error(True);
   link(c, d);
+
+  c.set_message("I'm C and I have changed my string!");
+
+  // c.set_message("C has changed its message!");
+  // // pull(d.get_sink().sink(), c.get_source().source());
+  // std::cout << "d.get_received: " << d.get_received() << std::endl;
 }

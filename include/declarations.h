@@ -71,6 +71,7 @@ template<typename T>
 struct sourceOptions {
   char id;
   sourceT<T> source = nullptr;
+  T message;
 };
 
 

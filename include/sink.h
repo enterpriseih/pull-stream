@@ -12,8 +12,11 @@ class Sink {
       m_sink_ID(sink_opts.id), m_sink_cb(sink_opts.sink_cb) {};
 
     sinkT<Message> sink() {
-      return [this](sourceT<Message> source){
-        source(m_end_or_error, m_sink_cb);
+      return [this](sourceT<Message> source) {
+        source(m_end_or_error, m_sink_cb); 
+        // 也许应该等待被触发
+        // std::function<void()> wrap_to_wait_trigger = [this, source](){ 
+        //   source(m_end_or_error, m_sink_cb); };
       };
     };
 
@@ -24,12 +27,13 @@ class Sink {
     void set_end_or_error(EndOrError value = False) {
       m_end_or_error = value;
     }
-    
+    Message get_received() const { return m_received; }
+    void set_received(Message m) { m_received = m; }
     source_callback<Message> m_sink_cb;
   private:
     char m_sink_ID;
     EndOrError m_end_or_error;
-    
+    Message m_received;
 };
 
 #endif
