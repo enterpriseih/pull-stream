@@ -14,13 +14,10 @@ class Source {
       m_message(source_opts.message),
       m_source(source_opts.source){};
 
-    sourceT<Message> source() {
-      return m_source;
-    };
+    sourceT<Message> source() { return m_source; };
 
-    std::queue<Message>& get_buffer() {
-      return m_buffer;
-    }
+    std::queue<Message>& get_buffer() { return m_buffer; }
+    
     std::queue<Message> load_buffer() {
       m_buffer.push(m_message);
       return m_buffer;

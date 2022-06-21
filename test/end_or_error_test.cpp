@@ -65,5 +65,4 @@ TEST(EndOrErrorTests, TransAfterEnd){
   EXPECT_EQ(b.get_message(), message_B_1);
   EXPECT_EQ(a.get_received(), message_B);
   EXPECT_NE(a.get_received(), message_B_1);
-  
 }
