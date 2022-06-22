@@ -27,11 +27,11 @@ class Duplex {
           if(end_or_error) {
             std::cout << this->get_id() << "'s peer as Source end or error" << std::endl;
             return; }
-          set_received(message);
+          this->set_received(message);
           std::cout << this->get_id() << 
           " received Message from peer(source): " 
           << message << std::endl;
-          if(this->get_sink().get_state().ending()){
+          if(this->get_sink().get_state().ending()) {
             this->get_sink().set_end_or_error(True);
           }
         };
@@ -45,7 +45,7 @@ class Duplex {
             std::cout << this->get_id() << "'s peer as Sink end or error" << std::endl;
             return; }
           this->get_source().source_callback = cb;
-          set_message(this->get_message());
+          this->set_message(this->get_message());
           return;
         };
       m_sink = Sink<T>(sink_opts);

@@ -38,6 +38,9 @@ TEST(StateTests, SinkAbort) {
   link(a, b);
   EXPECT_EQ(a.get_received(), message_B);
   EXPECT_NE(b.get_received(), message_A);
+  int message_A_1 = random();
+  a.set_message(message_A_1);
+  EXPECT_NE(b.get_received(), message_A_1);
 }
 
 TEST(StateTests, SinkEnd) {
@@ -64,6 +67,9 @@ TEST(StateTests, DuplexAbort) {
   link(a, b);
   EXPECT_NE(a.get_received(), message_B);
   EXPECT_NE(b.get_received(), message_A);
+  int message_A_1 = random();
+  a.set_message(message_A_1);
+  EXPECT_NE(b.get_received(), message_A_1);
 }
 
 TEST(StateTests, DuplexEnd) {
