@@ -58,7 +58,7 @@ class Duplex {
         m_source.set_end_or_error(True);
         return;
       }
-      std::queue<T> &buf = get_buffer();
+      std::queue<T> &buf = m_source.get_buffer();
       while (!buf.empty())
       {
         T tmp = buf.front();
@@ -93,19 +93,19 @@ class Duplex {
     Source<T>& get_source() { return m_source; }
     Sink<T>& get_sink() { return m_sink; }
 
-    void set_id(char id) { m_ID = id; }
-    char get_id() const { return m_ID; }
+    void set_id(const char& id) { m_ID = id; }
+    const char get_id() const { return m_ID; }
 
-    T get_message() const { return m_source.get_message(); }
-    T get_received() const { return m_sink.get_received(); }
-    void set_received(T m) { m_sink.set_received(m); }
-    void set_message(T m) { 
+    const T get_message() const { return m_source.get_message(); }
+    const T get_received() const { return m_sink.get_received(); }
+    void set_received(const T& m) { m_sink.set_received(m); }
+    void set_message(const T m) { 
       m_source.set_message(m);
       m_source.load_buffer();
       drain();
     }
     
-    std::queue<T>& get_buffer() { return m_source.get_buffer(); }
+    const std::queue<T> get_buffer() { return m_source.get_buffer(); }
   private:
     Source<T> m_source;
     Sink<T> m_sink;

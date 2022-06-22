@@ -7,8 +7,8 @@ template<typename Message>
 class Sink {
   public:
     Sink(){};
-    Sink(char id): m_sink_ID(id){};
-    Sink(sinkOptions<Message> sink_opts): 
+    Sink(const char& id): m_sink_ID(id){};
+    Sink(const sinkOptions<Message>& sink_opts): 
       m_sink_ID(sink_opts.id), m_sink_cb(sink_opts.sink_cb) {};
 
     sinkT<Message> sink() {
@@ -18,15 +18,15 @@ class Sink {
       };
     };
     State& get_state() { return m_state; }
-    void set_id(char id) { m_sink_ID = id; }
-    char get_id() const { return m_sink_ID; }
+    void set_id(const char& id) { m_sink_ID = id; }
+    const char get_id() const { return m_sink_ID; }
 
-    EndOrError get_end_or_error() const { return m_end_or_error; }
-    void set_end_or_error(EndOrError value = False) {
+    const EndOrError get_end_or_error() const { return m_end_or_error; }
+    void set_end_or_error(const EndOrError& value = False) {
       m_end_or_error = value;
     }
-    Message get_received() const { return m_received; }
-    void set_received(Message m) { m_received = m; }
+    const Message get_received() const { return m_received; }
+    void set_received(const Message& m) { m_received = m; }
     sourceT<Message> m_peer_source;
     source_callback<Message> m_sink_cb;
   private:

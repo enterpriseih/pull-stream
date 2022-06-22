@@ -23,14 +23,14 @@ class Source {
       return m_buffer;
     }
 
-    void set_id(char id) { m_source_ID = id; }
-    char get_id() const { return m_source_ID; }
-    EndOrError get_end_or_error() const { return m_end_or_error; }
-    void set_end_or_error(EndOrError value = False) {
+    void set_id(const char& id) { m_source_ID = id; }
+    const char get_id() const { return m_source_ID; }
+    const EndOrError get_end_or_error() const { return m_end_or_error; }
+    void set_end_or_error(const EndOrError& value = False) {
       m_end_or_error = value;
     }
-    Message get_message() const { return m_message; }
-    void set_message(Message m) { 
+    const Message get_message() const { return m_message; }
+    void set_message(const Message& m) { 
       m_message = m;
     }
     State& get_state() { return m_state; }
