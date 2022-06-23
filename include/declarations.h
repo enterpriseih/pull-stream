@@ -55,11 +55,11 @@ const EndOrError True = EndOrError{true};
 const EndOrError False = EndOrError{false};
 
 template <class T>
-using source_callback = std::function<void (EndOrError, T)>;
+using source_callback = std::function<void (const EndOrError&, const T&)>;
 template <class T>
-using sourceT = std::function<void (EndOrError, source_callback<T>)>;
+using sourceT = std::function<void (const EndOrError&, const source_callback<T>&)>;
 template <class T>
-using sinkT = std::function<void (sourceT<T>)>;
+using sinkT = std::function<void (const sourceT<T>&)>;
 
 template<typename T> 
 struct sinkOptions {

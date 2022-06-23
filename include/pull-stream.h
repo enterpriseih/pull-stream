@@ -4,7 +4,7 @@
 #include "common.h"
 
 template<class T>
-inline void pull(sinkT<T> sink, sourceT<T> source) {
+inline void pull(const sinkT<T>& sink, const sourceT<T>& source) {
     sink(source);
 }
 

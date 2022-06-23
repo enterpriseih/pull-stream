@@ -5,6 +5,7 @@
 #include <vector>
 #include <stdio.h>
 #include <unistd.h>
+#include <memory>
 
 #include "declarations.h"
 #include "state.h"

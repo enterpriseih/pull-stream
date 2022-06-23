@@ -8,7 +8,7 @@ class Duplex {
   public:
     Duplex(){};
 
-    Duplex(char id, T message,
+    Duplex(const char& id, const T& message,
       sinkOptions<T> sink_opts = sinkOptions<T>{},
       sourceOptions<T> source_opts = sourceOptions<T>{}): 
       m_ID(id) {
@@ -94,10 +94,10 @@ class Duplex {
     Sink<T>& get_sink() { return m_sink; }
 
     void set_id(const char& id) { m_ID = id; }
-    const char get_id() const { return m_ID; }
+    const char& get_id() const { return m_ID; }
 
-    const T get_message() const { return m_source.get_message(); }
-    const T get_received() const { return m_sink.get_received(); }
+    const T& get_message() const { return m_source.get_message(); }
+    const T& get_received() const { return m_sink.get_received(); }
     void set_received(const T& m) { m_sink.set_received(m); }
     void set_message(const T m) { 
       m_source.set_message(m);
@@ -105,7 +105,7 @@ class Duplex {
       drain();
     }
     
-    const std::queue<T> get_buffer() { return m_source.get_buffer(); }
+    const std::queue<T>& get_buffer() { return m_source.get_buffer(); }
   private:
     Source<T> m_source;
     Sink<T> m_sink;
