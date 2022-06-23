@@ -4,11 +4,6 @@
 #include <assert.h>
 #include <exception>
 #include <string>
-// struct EndOrError
-// {
-//   bool end = false;
-//   bool error = false;
-// };
 
 class EndOrError : std::exception {
   public:
@@ -21,7 +16,7 @@ class EndOrError : std::exception {
     explicit EndOrError(const std::string& msg) noexcept :
       EndOrError(msg.c_str()) {}
     explicit operator bool() const { return ERROR == m_tag || m_end; }
-    EndOrError operator||(const EndOrError err) const {
+    EndOrError operator||(const EndOrError& err) const {
       return (*this) ? *this : err;
     }
     bool operator==(const EndOrError& err) const {

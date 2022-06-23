@@ -14,7 +14,7 @@ class Duplex {
       m_ID(id) {
       sink_opts.id = sink_opts.id ? sink_opts.id : id;
       sink_opts.sink_cb = sink_opts.sink_cb ? sink_opts.sink_cb : 
-        [this](EndOrError end_or_error, T message) {
+        [this](const EndOrError& end_or_error, const T& message) {
           // arguments come from source
           // this ptr points to sink's parent: Duplex
           if(this->get_sink().get_state().aborting()) {
@@ -38,7 +38,7 @@ class Duplex {
       source_opts.id = source_opts.id ? source_opts.id : id;
       source_opts.message = message;
       source_opts.source = source_opts.source ? source_opts.source : 
-        [this](EndOrError end_or_error, source_callback<T> cb){
+        [this](const EndOrError& end_or_error, const source_callback<T>& cb){
           // arguments come from sink
           // this ptr points to source's parent: Duplex
           if(end_or_error) {
@@ -73,9 +73,7 @@ class Duplex {
     void abort_source() { m_source.get_state().ask_abort(); }
     void end_source() { m_source.get_state().ask_end(); }
     void abort_sink() { m_sink.get_state().ask_abort(); }
-    void end_sink() { 
-      m_sink.get_state().ask_end(); 
-    }
+    void end_sink() { m_sink.get_state().ask_end(); }
     void abort() {
       abort_sink();
       abort_source();
