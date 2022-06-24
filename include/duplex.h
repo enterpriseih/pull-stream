@@ -36,15 +36,14 @@ class Duplex {
             std::cout << this->get_id() << "'s peer as Sink end or error" << std::endl;
             return; }
           this->get_source().source_callback = cb;
-          //
           this->drain();
           return;
         };
       m_sink = Sink<T>(sink_opts);
       m_source = Source<T>(source_opts);
     };
+
     void sink_state_handler(const State& sink_state) {
-      // puts("sink_state_handler");
       m_source.set_peer_state(sink_state);
       if(sink_state.aborting()) {
         while (!m_source.get_buffer().empty())
@@ -107,9 +106,7 @@ class Duplex {
     }
     void init() {
       m_sink.get_state().init();
-      // m_sink.set_end_or_error(False);
       m_source.get_state().init();
-      // m_source.set_end_or_error(False);
     }
     Source<T>& get_source() { return m_source; }
     Sink<T>& get_sink() { return m_sink; }
