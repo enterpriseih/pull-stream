@@ -25,24 +25,21 @@ class Source {
 
     void set_id(const char& id) { m_source_ID = id; }
     const char& get_id() const { return m_source_ID; }
-    const EndOrError& get_end_or_error() const { return m_end_or_error; }
-    void set_end_or_error(const EndOrError& value = False) {
-      m_end_or_error = value;
-    }
     const Message& get_message() const { return m_message; }
     void set_message(const Message& m) { 
       m_message = m;
     }
     State& get_state() { return m_state; }
-
+    State& get_peer_state() { return m_peer_state; }
+    void set_peer_state(const State& state) { m_peer_state = state; }
     sourceT<Message> m_source;
     source_callback<Message> source_callback; 
   private:
     char m_source_ID;
-    EndOrError m_end_or_error;
     Message m_message;
     std::queue<Message> m_buffer;
     State m_state;
+    State m_peer_state;
 };
 
 #endif

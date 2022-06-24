@@ -9,7 +9,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/gongzian/src/pull-stream/test/basic-test.cpp" "test/CMakeFiles/pull-stream-test.dir/basic-test.cpp.o" "gcc" "test/CMakeFiles/pull-stream-test.dir/basic-test.cpp.o.d"
-  "/Users/gongzian/src/pull-stream/test/end_or_error_test.cpp" "test/CMakeFiles/pull-stream-test.dir/end_or_error_test.cpp.o" "gcc" "test/CMakeFiles/pull-stream-test.dir/end_or_error_test.cpp.o.d"
   "/Users/gongzian/src/pull-stream/test/state-test.cpp" "test/CMakeFiles/pull-stream-test.dir/state-test.cpp.o" "gcc" "test/CMakeFiles/pull-stream-test.dir/state-test.cpp.o.d"
   )
 

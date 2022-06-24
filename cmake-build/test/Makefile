@@ -209,30 +209,6 @@ basic-test.cpp.s:
 	cd /Users/gongzian/src/pull-stream/cmake-build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/pull-stream-test.dir/build.make test/CMakeFiles/pull-stream-test.dir/basic-test.cpp.s
 .PHONY : basic-test.cpp.s
 
-end_or_error_test.o: end_or_error_test.cpp.o
-.PHONY : end_or_error_test.o
-
-# target to build an object file
-end_or_error_test.cpp.o:
-	cd /Users/gongzian/src/pull-stream/cmake-build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/pull-stream-test.dir/build.make test/CMakeFiles/pull-stream-test.dir/end_or_error_test.cpp.o
-.PHONY : end_or_error_test.cpp.o
-
-end_or_error_test.i: end_or_error_test.cpp.i
-.PHONY : end_or_error_test.i
-
-# target to preprocess a source file
-end_or_error_test.cpp.i:
-	cd /Users/gongzian/src/pull-stream/cmake-build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/pull-stream-test.dir/build.make test/CMakeFiles/pull-stream-test.dir/end_or_error_test.cpp.i
-.PHONY : end_or_error_test.cpp.i
-
-end_or_error_test.s: end_or_error_test.cpp.s
-.PHONY : end_or_error_test.s
-
-# target to generate assembly for a file
-end_or_error_test.cpp.s:
-	cd /Users/gongzian/src/pull-stream/cmake-build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/pull-stream-test.dir/build.make test/CMakeFiles/pull-stream-test.dir/end_or_error_test.cpp.s
-.PHONY : end_or_error_test.cpp.s
-
 state-test.o: state-test.cpp.o
 .PHONY : state-test.o
 
@@ -274,9 +250,6 @@ help:
 	@echo "... basic-test.o"
 	@echo "... basic-test.i"
 	@echo "... basic-test.s"
-	@echo "... end_or_error_test.o"
-	@echo "... end_or_error_test.i"
-	@echo "... end_or_error_test.s"
 	@echo "... state-test.o"
 	@echo "... state-test.i"
 	@echo "... state-test.s"

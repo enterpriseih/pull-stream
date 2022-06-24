@@ -7,8 +7,9 @@
 #include <unistd.h>
 #include <memory>
 
-#include "declarations.h"
+#include "end_or_error.h"
 #include "state.h"
+#include "declarations.h"
 #include "sink.h"
 #include "source.h"
 #include "duplex.h"
