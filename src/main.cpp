@@ -6,15 +6,22 @@ int main() {
   std::string message_B = "B@1";
   Duplex<std::string> a('A', message_A);
   Duplex<std::string> b('B', message_B);
+  // b.end_source();
+  // b.abort_source();
+  // a.get_sink().get_state().ask_abort();
+  // a.get_sink().get_state().ask_end();
+  // a.abort_sink();
   a.end_sink();
   link(a, b);
-  // std::cout << "a.get_received() = " << a.get_received() << std::endl;
-  // std::cout << "b.get_received() = " << b.get_received() << std::endl;
-  std::string message_A_1 = "A@2";
-  a.set_message(message_A_1);
-  // std::cout << "a.get_message() = " << a.get_message() << std::endl;
-  std::string message_B_1 = "B@2";
-  b.set_message(message_A_1);
-  // std::cout << "a.get_received() = " << a.get_received() << std::endl;
-  // std::cout << "b.get_received() = " << b.get_received() << std::endl;
+  // a.end_sink();
+  // a.abort_sink();
+  // b.end_source();
+  // a.get_sink().get_state().ask_abort();
+  // a.get_sink().get_state().ask_end();
+
+  // a.get_sink().m_peer_source(a.get_sink().get_state(), a.get_sink().m_sink_cb);
+  b.set_message("B@2");
+  b.set_message("B@3");
+  b.set_message("B@4");
+  // reconnect(a, b);
 }

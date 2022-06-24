@@ -35,7 +35,7 @@ TEST(StateTests, SourceEndBefore) {
   a.end_source();
   link(a, b);
   EXPECT_EQ(a.get_received(), message_B);
-  EXPECT_EQ(b.get_received(), message_A);
+  EXPECT_NE(b.get_received(), message_A);
   int message_A_1 = random();
   a.set_message(message_A_1);
   EXPECT_NE(b.get_received(), message_A_1);
@@ -87,11 +87,11 @@ TEST(StateTests, SinkEndBefore) {
   b.end_sink();
   link(a, b);
   EXPECT_EQ(a.get_received(), message_B);
-  EXPECT_EQ(b.get_received(), message_A);
+  EXPECT_NE(b.get_received(), message_A);
   std::string message_A_1 = "A@2";
   a.set_message(message_A_1);
   EXPECT_NE(b.get_received(), message_A_1);
-  EXPECT_EQ(b.get_received(), message_A);
+  EXPECT_NE(b.get_received(), message_A);
 }
 
 TEST(StateTests, SinkEndAfter) {
@@ -140,12 +140,15 @@ TEST(StateTests, DuplexEndBefore) {
   Duplex<std::string> b('B', message_B);
   a.end();
   link(a, b);
-  EXPECT_EQ(a.get_received(), message_B);
-  EXPECT_EQ(b.get_received(), message_A);
+  EXPECT_NE(a.get_received(), message_B);
+  EXPECT_NE(b.get_received(), message_A);
   std::string message_A_1 = "A@2";
   a.set_message(message_A_1);
   EXPECT_NE(b.get_received(), message_A_1);
-  EXPECT_EQ(b.get_received(), message_A);
+  std::string message_B_1 = "B@2";
+  b.set_message(message_B_1);
+  EXPECT_NE(a.get_received(), message_B_1);
+
 }
 TEST(StateTests, DuplexEndAfter) {
   std::string message_A = "A@1";

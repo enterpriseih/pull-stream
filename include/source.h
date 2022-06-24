@@ -12,13 +12,15 @@ class Source {
     Source(sourceOptions<Message> source_opts): 
       m_source_ID(source_opts.id), 
       m_message(source_opts.message),
-      m_source(source_opts.source){};
+      m_source(source_opts.source){
+        m_buffer.push(m_message);
+      };
 
     const sourceT<Message>& source() { return m_source; };
 
     std::queue<Message>& get_buffer() { return m_buffer; }
     
-    std::queue<Message> load_buffer() {
+    std::queue<Message>& load_buffer() {
       m_buffer.push(m_message);
       return m_buffer;
     }

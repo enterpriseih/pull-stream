@@ -17,13 +17,6 @@ class Duplex {
         [this](const State& source_state, const T& message) {
           // arguments come from source
           // this ptr points to sink's parent: Duplex
-          if(this->get_sink().get_state().aborting()) {
-            this->get_sink().get_state().ask_end();
-            this->get_sink().get_state().ask_finish();
-          }
-          if(this->get_sink().get_state().finish()) {
-            std::cout << this->get_id() << " is end or error" << std::endl;
-            return; }
           if(source_state.finish()) {
             std::cout << this->get_id() << "'s peer as Source end or error" << std::endl;
             return; }
@@ -31,9 +24,6 @@ class Duplex {
           std::cout << this->get_id() << 
           " received Message from peer(source): " 
           << message << std::endl;
-          if(this->get_sink().get_state().ending()) {
-            this->get_sink().get_state().ask_finish();
-          }
         };
       source_opts.id = source_opts.id ? source_opts.id : id;
       source_opts.message = message;
@@ -41,23 +31,42 @@ class Duplex {
         [this](const State& sink_state, const source_callback<T>& cb){
           // arguments come from sink
           // this ptr points to source's parent: Duplex
+          sink_state_handler(sink_state);
           if(sink_state.finish()) {
             std::cout << this->get_id() << "'s peer as Sink end or error" << std::endl;
             return; }
           this->get_source().source_callback = cb;
-          this->set_message(this->get_message());
+          //
+          this->drain();
           return;
         };
       m_sink = Sink<T>(sink_opts);
       m_source = Source<T>(source_opts);
     };
-
+    void sink_state_handler(const State& sink_state) {
+      // puts("sink_state_handler");
+      m_source.set_peer_state(sink_state);
+      if(sink_state.aborting()) {
+        while (!m_source.get_buffer().empty())
+          m_source.get_buffer().pop();
+        std::cout << "buffer cleared!" << std::endl;
+        m_source.get_peer_state().ask_finish();
+      }
+      if(sink_state.ending()) {
+        m_source.get_peer_state().ask_finish();
+      }
+    }
     void drain() {
-      if(m_source.get_state().aborting()) {
-        end_source();
+      if(m_source.get_state().finish()) return;
+      if(m_source.get_state().aborting() || m_source.get_state().ending()) {
         m_source.get_state().ask_finish();
         return;
       }
+      if(!m_source.get_peer_state().finish())
+        drain_buffer();
+    }
+
+    void drain_buffer() {
       std::queue<T> &buf = m_source.get_buffer();
       while (!buf.empty())
       {
@@ -65,16 +74,29 @@ class Duplex {
         buf.pop();
         m_source.source_callback(m_source.get_state(), tmp);
       }
-      if(m_source.get_state().ending()) {
-        m_source.get_state().ask_finish();
-      }
     }
 
-    void abort_source() { m_source.get_state().ask_abort(); }
-    void end_source() { m_source.get_state().ask_end(); }
-    void abort_sink() { m_sink.get_state().ask_abort(); }
+    void abort_source() { 
+      m_source.get_state().ask_abort(); 
+      while (!m_source.get_buffer().empty())
+        m_source.get_buffer().pop();
+        std::cout << "buffer cleared!" << std::endl;
+    }
+
+    void end_source() { 
+      m_source.get_state().ask_end();
+    }
+    
+    void abort_sink() { 
+      m_sink.get_state().ask_abort(); 
+      if(m_sink.m_peer_source) m_sink.m_peer_source(m_sink.get_state(), m_sink.m_sink_cb);
+    }
     void end_sink() { 
-      m_sink.get_state().ask_end(); }
+      m_sink.get_state().ask_end(); 
+      if(m_sink.m_peer_source) m_sink.m_peer_source(m_sink.get_state(), m_sink.m_sink_cb);
+    }
+
+
     void abort() {
       abort_sink();
       abort_source();
