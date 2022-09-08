@@ -38,7 +38,6 @@
 /Users/gongzian/src/pull-stream/cmake-build/src/CMakeFiles/install.dir
 /Users/gongzian/src/pull-stream/cmake-build/src/CMakeFiles/install/local.dir
 /Users/gongzian/src/pull-stream/cmake-build/src/CMakeFiles/install/strip.dir
-/Users/gongzian/src/pull-stream/cmake-build/test/CMakeFiles/pull-stream-test.dir
 /Users/gongzian/src/pull-stream/cmake-build/test/CMakeFiles/test.dir
 /Users/gongzian/src/pull-stream/cmake-build/test/CMakeFiles/edit_cache.dir
 /Users/gongzian/src/pull-stream/cmake-build/test/CMakeFiles/rebuild_cache.dir
