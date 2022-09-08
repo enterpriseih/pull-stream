@@ -13,6 +13,9 @@ class Duplex {
 
         Source<T>& get_source() { return m_source; }
         Sink<T>& get_sink() { return m_sink; }
+        void request() { m_sink.request(); }
+        void consume() { m_source.consume(); }
+        void consume(const T& message) { m_source.consume(message); }
     private:
         std::string m_id;
         Sink<T> m_sink;

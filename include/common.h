@@ -3,6 +3,8 @@
 #include <functional>
 #include <string>
 #include <iostream>
+#include <vector>
+#include <queue>
 
 template <class T>
 using sink_callback = std::function<void (const State&, const T&)>;
