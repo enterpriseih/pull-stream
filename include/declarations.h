@@ -1,5 +1,5 @@
-#ifndef DECLARATIONS_H
-#define DECLARATIONS_H
+#pragma once
+
 #include <functional>
 #include <assert.h>
 #include <exception>
@@ -24,6 +24,3 @@ struct sourceOptions {
   sourceT<T> source = nullptr;
   T message;
 };
-
-
-#endif

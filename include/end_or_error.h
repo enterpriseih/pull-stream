@@ -1,5 +1,4 @@
-#ifndef END_OR_ERROR
-#define END_OR_ERROR
+#pragma once
 
 #include <functional>
 #include <assert.h>
@@ -49,5 +48,3 @@ class EndOrError : std::exception {
 };
 const EndOrError True = EndOrError{true};
 const EndOrError False = EndOrError{false};
-
-#endif

@@ -1,7 +1,6 @@
-#ifndef STATE_H
-#define STATE_H
+#pragma once
 
-#include "common.h"
+#include "end_or_error.h"
 
 class State {
   public:
@@ -39,5 +38,3 @@ class State {
     EndOrError m_aborting;
     EndOrError m_finished;
 };
-
-#endif
