@@ -1,18 +1,14 @@
-#ifndef COMMON_H
-#define COMMON_H
-#include <iostream>
-#include <string>
-#include <vector>
-#include <stdio.h>
-#include <unistd.h>
-#include <memory>
-
-#include "end_or_error.h"
+#pragma once
 #include "state.h"
-#include "declarations.h"
-#include "sink.h"
-#include "source.h"
-#include "duplex.h"
-#include "pull-stream.h"
+#include <functional>
+#include <string>
+#include <iostream>
+#include <vector>
+#include <queue>
 
-#endif
+template <typename T>
+using sink_callback = std::function<void (const State&, const T&)>;
+template <typename T>
+using sourceT = std::function<void (const State&, const sink_callback<T>&)>;
+template <typename T>
+using sinkT = std::function<void (const sourceT<T>&)>;
