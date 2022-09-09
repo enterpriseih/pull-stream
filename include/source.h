@@ -20,6 +20,8 @@ class Source {
         void consume(const T& message);
         void consume(const State& state);
         void consume(const State& state, const T& message);
+
+        T get_message() { return m_message; }
     private:
         State m_state;
         State m_peer_state;
@@ -29,7 +31,7 @@ class Source {
                                       const sink_callback<T>& cb) {
             if (sink_state.finish()) {
                 m_peer_state = sink_state;
-                std::cout << m_id << "'s peer as Sink end or error" << std::endl;
+                std::cout << m_id << "'s peer as Sink ended" << std::endl;
                 return;
             }
             // cb(m_state, m_message);

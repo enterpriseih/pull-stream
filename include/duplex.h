@@ -12,12 +12,12 @@ class Duplex {
         Duplex(const std::string& id, const T& message): 
             m_id(id), m_sink(id), m_source(id, message) {}
 
-        /* Create streams*/
+         /* Create streams*/
         Source<T>& get_source() { return m_source; }
         Sink<T>& get_sink() { return m_sink; }
-        
+       
         /* Transmit message */
-        void request() { m_sink.request(); }
+        // void request() { m_sink.request(); } /* hide this interface */
         void consume() { m_source.consume(); }
         void consume(const T& message) { m_source.consume(message); }
 
@@ -25,6 +25,10 @@ class Duplex {
         void end_source();
         void end_sink();
         void end();
+
+        /* Message */
+        T get_message() { return m_source.get_message(); }
+        T get_received() { return m_sink.get_received(); }
 
     private:
         std::string m_id;
@@ -34,12 +38,10 @@ class Duplex {
 
 template<typename T>
 void Duplex<T>::end_source() {
-    std::cout << "end_source" << std::endl;
     m_source.consume(true);
 }
 template<typename T>
 void Duplex<T>::end_sink() {
-    std::cout << "end_sink" << std::endl;
     m_sink.request(true);
 }
 template<typename T>
@@ -56,8 +58,4 @@ template<typename T>
 inline void link(Duplex<T>& a, Duplex<T>& b) {
     pull(a.get_sink().sink(), b.get_source().source());
     pull(b.get_sink().sink(), a.get_source().source());
-}
-template<typename T>
-inline void reconnect(Duplex<T>& a, Duplex<T>& b) {
-    
 }

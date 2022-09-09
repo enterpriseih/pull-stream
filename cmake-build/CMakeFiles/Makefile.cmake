@@ -88,4 +88,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "third-party/googletest-release-1.11.0/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
   "third-party/googletest-release-1.11.0/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   "src/CMakeFiles/pull-stream.dir/DependInfo.cmake"
+  "test/CMakeFiles/pull-stream-test.dir/DependInfo.cmake"
   )

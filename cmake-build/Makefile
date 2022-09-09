@@ -236,6 +236,19 @@ pull-stream/fast:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/pull-stream.dir/build.make src/CMakeFiles/pull-stream.dir/build
 .PHONY : pull-stream/fast
 
+#=============================================================================
+# Target rules for targets named pull-stream-test
+
+# Build rule for target.
+pull-stream-test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pull-stream-test
+.PHONY : pull-stream-test
+
+# fast build rule for target.
+pull-stream-test/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/pull-stream-test.dir/build.make test/CMakeFiles/pull-stream-test.dir/build
+.PHONY : pull-stream-test/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -254,6 +267,7 @@ help:
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... pull-stream"
+	@echo "... pull-stream-test"
 .PHONY : help
 
 

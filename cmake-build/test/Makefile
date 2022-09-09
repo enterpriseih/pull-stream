@@ -171,6 +171,44 @@ depend:
 	cd /Users/gongzian/src/pull-stream/cmake-build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+test/CMakeFiles/pull-stream-test.dir/rule:
+	cd /Users/gongzian/src/pull-stream/cmake-build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/pull-stream-test.dir/rule
+.PHONY : test/CMakeFiles/pull-stream-test.dir/rule
+
+# Convenience name for target.
+pull-stream-test: test/CMakeFiles/pull-stream-test.dir/rule
+.PHONY : pull-stream-test
+
+# fast build rule for target.
+pull-stream-test/fast:
+	cd /Users/gongzian/src/pull-stream/cmake-build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/pull-stream-test.dir/build.make test/CMakeFiles/pull-stream-test.dir/build
+.PHONY : pull-stream-test/fast
+
+basic-test.o: basic-test.cpp.o
+.PHONY : basic-test.o
+
+# target to build an object file
+basic-test.cpp.o:
+	cd /Users/gongzian/src/pull-stream/cmake-build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/pull-stream-test.dir/build.make test/CMakeFiles/pull-stream-test.dir/basic-test.cpp.o
+.PHONY : basic-test.cpp.o
+
+basic-test.i: basic-test.cpp.i
+.PHONY : basic-test.i
+
+# target to preprocess a source file
+basic-test.cpp.i:
+	cd /Users/gongzian/src/pull-stream/cmake-build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/pull-stream-test.dir/build.make test/CMakeFiles/pull-stream-test.dir/basic-test.cpp.i
+.PHONY : basic-test.cpp.i
+
+basic-test.s: basic-test.cpp.s
+.PHONY : basic-test.s
+
+# target to generate assembly for a file
+basic-test.cpp.s:
+	cd /Users/gongzian/src/pull-stream/cmake-build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/pull-stream-test.dir/build.make test/CMakeFiles/pull-stream-test.dir/basic-test.cpp.s
+.PHONY : basic-test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -184,6 +222,10 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... pull-stream-test"
+	@echo "... basic-test.o"
+	@echo "... basic-test.i"
+	@echo "... basic-test.s"
 .PHONY : help
 
 
