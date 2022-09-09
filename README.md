@@ -3,14 +3,14 @@ A simple pull-stream in C++.
 ## Intro
 Once the duplex stream links, the sink will send a **Request** to peer's sources.
 
-Then, when source has message, it **Consume** the **Request**.
+Then, when source has message, it **Consume**s the **Request**.
 
 If the sink received a message, it will automatically send a new **Request**.
 
 ## Table of Contents
-include: Head files
-src: Example(s)
-test: A series of gtests
+- include: Head files
+- src: Example(s)
+- test: A series of gtests
 
 ## Example
 ```C++
