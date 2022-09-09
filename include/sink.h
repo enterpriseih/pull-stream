@@ -4,16 +4,21 @@
 template<typename T>
 class Sink {
     public:
+        /* Constructors */
         Sink(const std::string& id): m_id(id) {}
+
+        /* Create streams*/
         sinkT<T> sink() {
             return [this](const sourceT<T>& source) {
                 // source(m_state, m_sink_cb);
                 m_peer_source = source;
             };
         }
-
-        void request();
         
+        /* Transmit data */
+        void request();
+        void request(const State& state);
+
     private:
         State m_state;
         std::string m_id;
@@ -32,5 +37,10 @@ class Sink {
 
 template<typename T>
 void Sink<T>::request() {
+    m_peer_source(m_state, m_sink_cb);
+}
+template<typename T>
+void Sink<T>::request(const State& state) {
+    m_state = state;
     m_peer_source(m_state, m_sink_cb);
 }

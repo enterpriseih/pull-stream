@@ -7,9 +7,18 @@ int main() {
   Duplex<std::string> a("A", message_A);
   Duplex<std::string> b("B", message_B);
   link(a, b);
+
   a.request();
   a.request();
+  a.request();
+  a.request();
+
+  // b.consume();
+  // b.consume();
+  // b.consume("B@2");
+  // b.consume("B@3");
+  // a.end_sink();
+  b.end_source();
   b.consume();
-  b.consume("B@2");
-  b.consume("B@3");
+  b.consume();
 }
