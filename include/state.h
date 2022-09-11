@@ -7,7 +7,7 @@
 class State {
   public:
     State() = default;
-    State(bool end): m_end(end) {}
+    explicit State(bool end): m_end(end) {}
     bool finish() const {
       return m_end;
     }

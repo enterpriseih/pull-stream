@@ -38,11 +38,11 @@ class Duplex {
 
 template<typename T>
 void Duplex<T>::end_source() {
-    m_source.consume(true);
+    m_source.consume(State(true));
 }
 template<typename T>
 void Duplex<T>::end_sink() {
-    m_sink.request(true);
+    m_sink.request(State(true));
 }
 template<typename T>
 void Duplex<T>::end() {

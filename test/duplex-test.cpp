@@ -1,7 +1,7 @@
 #include "../include/duplex.h"
 #include "gtest/gtest.h"
 
-TEST(BasicTests, CreateDuplex) {
+TEST(DuplexTests, CreateDuplex) {
     std::string message_A = "A@1";
     Duplex<std::string> a("A", message_A);
     EXPECT_EQ(a.get_message(), message_A);
@@ -9,7 +9,7 @@ TEST(BasicTests, CreateDuplex) {
     EXPECT_EQ(b.get_message(), 2333);
 }
 
-TEST(BasicTests, LinkDuplex) {
+TEST(DuplexTests, LinkDuplex) {
     Duplex<std::string> a("A", "A@1");
     Duplex<std::string> b("B");
     link(a, b);
@@ -17,7 +17,7 @@ TEST(BasicTests, LinkDuplex) {
     EXPECT_EQ(a.get_received(), "");
 }
 
-TEST(BasicTests, ConsumeData) {
+TEST(DuplexTests, ConsumeData) {
     Duplex<std::string> a("A", "A@1");
     Duplex<std::string> b("B");
     link(a, b);
@@ -27,7 +27,7 @@ TEST(BasicTests, ConsumeData) {
     EXPECT_EQ(b.get_received(), "A@1");
 }
 
-TEST(BasicTests, DataStream) {
+TEST(DuplexTests, DataStream) {
     Duplex<std::string> a("A");
     Duplex<std::string> b("B");
     link(a, b);
@@ -39,7 +39,7 @@ TEST(BasicTests, DataStream) {
     EXPECT_EQ(a.get_received(), "B@3");
 }
 
-TEST(BasicTests, EndSource) {
+TEST(DuplexTests, EndSource) {
     Duplex<std::string> a("A");
     Duplex<std::string> b("B");
     link(a, b);
@@ -48,7 +48,7 @@ TEST(BasicTests, EndSource) {
     EXPECT_NE(b.get_received(), "A@1");    
 }
 
-TEST(BasicTests, EndSink) {
+TEST(DuplexTests, EndSink) {
     Duplex<std::string> a("A");
     Duplex<std::string> b("B");
     link(a, b);
@@ -57,7 +57,7 @@ TEST(BasicTests, EndSink) {
     EXPECT_NE(a.get_received(), "B@1");    
 }
 
-TEST(BasicTests, EndDuplex) {
+TEST(DuplexTests, EndDuplex) {
     Duplex<std::string> a("A");
     Duplex<std::string> b("B");
     link(a, b);

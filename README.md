@@ -27,3 +27,16 @@ int main() {
     b.consume("B@3");
 }
 ```
+
+## Chain-like Example
+```C++
+#include "../include/duplex.h"
+
+int main() {
+    Sink<std::string> c("C");
+    Source<std::string> d("D", "D@1");
+    c.pull(d);
+    d.consume();
+    return 0;
+    }
+```

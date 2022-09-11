@@ -10,4 +10,9 @@ int main() {
     b.consume("B@1");
     b.consume("B@2");
     b.consume("B@3");
+
+    Sink<std::string> c("C");
+    Source<std::string> d("D", "D@1");
+    c.pull(d);
+    d.consume();
 }

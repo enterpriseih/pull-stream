@@ -1,5 +1,6 @@
 #pragma once
 #include "common.h"
+#include "source.h"
 
 template<typename T>
 class Sink {
@@ -13,6 +14,10 @@ class Sink {
                 m_peer_source = source;
                 request();
             };
+        }
+
+        void pull(Source<T>& source) {
+            sink()(source.source());
         }
         
         /* Transmit data */
