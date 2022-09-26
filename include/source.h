@@ -36,6 +36,9 @@ class Source {
             }
             // cb(m_state, m_message);
             m_cb_que.push(cb);
+            if (!m_message_que.empty()) {
+                consume();
+            }
         };
         std::queue<sink_callback<T>> m_cb_que;
         std::queue<T> m_message_que;

@@ -14,17 +14,18 @@ TEST(ChainTests, Pull) {
     Source<std::string> a("A", "A@1");
     Sink<std::string> b("B");
     b.pull(a);
-    EXPECT_NE(b.get_received(), "A@1");
+    EXPECT_EQ(b.get_received(), "A@1");
 }
 
 TEST(ChainTests, DataStream) {
     Sink<std::string> c("C");
     Source<std::string> d("D", "D@1");
     c.pull(d);
+    EXPECT_EQ(c.get_received(), "D@1");
     d.consume("D@1");
     EXPECT_EQ(c.get_received(), "D@1");
     d.consume("D@2");
-    EXPECT_EQ(c.get_received(), "D@1");
+    EXPECT_EQ(c.get_received(), "D@2");
     d.consume();
     EXPECT_EQ(c.get_received(), "D@2");
 }

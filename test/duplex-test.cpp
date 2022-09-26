@@ -13,7 +13,7 @@ TEST(DuplexTests, LinkDuplex) {
     Duplex<std::string> a("A", "A@1");
     Duplex<std::string> b("B");
     link(a, b);
-    EXPECT_NE(b.get_received(), "A@1");
+    EXPECT_EQ(b.get_received(), "A@1");
     EXPECT_EQ(a.get_received(), "");
 }
 

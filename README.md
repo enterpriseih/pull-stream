@@ -36,7 +36,6 @@ int main() {
     Sink<std::string> c("C");
     Source<std::string> d("D", "D@1");
     c.pull(d);
-    d.consume();
     return 0;
-    }
+}
 ```
